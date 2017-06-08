@@ -4,11 +4,11 @@ Important: If you dont have nodejs and gulp installed in your system:
 1. [Install Node.js][]
 2. [Install Gulpjs][]
 
-For test purpose the app needs karma(jasmine) and protractor:
+For test purposes the app needs karma(jasmine) and protractor:
 3. [Install Karma][]
 4. [Install Protractor][]
 
-[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/IBM-Bluemix/nodejs-helloworld)
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/rubengmz/bluemix-nodeangularseed-gulp)
 
 ## Run the app locally
 
