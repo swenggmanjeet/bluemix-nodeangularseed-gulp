@@ -1,0 +1,17 @@
+<h1>Another page using routes</h1>
+
+<input type="text" ng-model="inputText" ng-keydown="$event.keyCode === 13 && sendMessage()"/>
+
+<!-- conversation -->
+<div ng-repeat="message in messages" class="chat-message" ng-class="{'user': message.who=='user', 'bot': message.who=='bot'}">
+  
+  --------------------------------------------------------------------------------------------------------------
+  
+  <p class="chat-message__text" ng-bind-html="message.text"></p>
+
+  <div class="clearfix"></div>
+
+  <span class="chat-message__date" ng-if="message.who=='user'">{{ message.date | date: 'HH:mm a' }} </span>
+
+</div>
+<!-- /end of conversation -->

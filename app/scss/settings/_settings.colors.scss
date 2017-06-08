@@ -1,0 +1,84 @@
+// Color Palette 
+// -d1 (darker) -d2 (darkest) -l1 (lighter) -l2 (lighte)
+$color-primary: #3d70b2;
+$color-primary-d1: #1b4e6b;
+$color-primary-d2: #0f212e;
+$color-primary-l1: #5596e6;
+$color-primary-l2: #5aaafa;
+
+$color-secondary: #00b4a0;
+$color-secondary-d1: #008571;
+$color-secondary-d2: #006d5d;
+$color-secondary-l1: #00ccb4;
+$color-secondary-l2: #00edd1;
+
+$color-alternative: #f5f7fa;
+$color-alternative-d1: #ecf1f8;
+$color-alternative-d2: #c5d4e8;
+$color-alternative-l1: #fff;
+$color-alternative-l2: #fff;
+
+
+// Colors Base
+$color-white: #fff;
+$color-white-d1: #f4f4f4;
+$color-white-d2: #eaeaea;
+
+$color-black: #111;
+$color-black-l1: #232323;
+$color-black-l2: #4b4b4b;
+
+
+// Colors States
+$color-success: #26a65b;
+$color-danger: #f9bf3b;
+$color-error: #ef4839;
+
+
+// Global colors
+$color-body-bg: $color-alternative;
+$color-body-text: $color-black-l1;
+
+
+// Add your components colours using colour palette :: NOT Define new colours here
+
+// Pattern Header
+$color-pattern-header-title-bg: $color-primary-d2;
+$color-pattern-header-title-text: $color-alternative;
+$color-pattern-header-title-text-highlight: $color-secondary;
+$color-pattern-header-navbar-link: $color-white;
+$color-pattern-header-navbar-link-hover: $color-secondary;
+$color-pattern-header-navbar-link-active: $color-secondary-d1;
+$color-pattern-body-section-title-text: $color-primary;
+$color-pattern-body-section-title-separator: $color-secondary-l1;
+$color-pattern-footer-bg: $color-black-l1;
+$color-pattern-footer-text: $color-primary-d2;
+$color-pattern-footer-highlight: $color-secondary-l1;
+
+
+// Buttons
+$color-button-primary-bg: $color-primary;
+$color-button-primary-bg-hover: $color-primary-d1;
+$color-button-primary-bg-active: $color-primary-l1;
+$color-button-primary-text: $color-white;
+$color-button-primary-border: $color-primary;
+$color-button-primary-border-hover: $color-primary-d1;
+$color-button-primary-border-active: $color-primary-l1;
+
+
+$color-button-secondary-bg: $color-secondary;
+$color-button-secondary-bg-hover: $color-secondary-d1;
+$color-button-secondary-bg-active: $color-secondary-l1;
+$color-button-secondary-text: $color-white;
+$color-button-secondary-border: $color-secondary;
+$color-button-secondary-border-hover: $color-secondary-d1;
+$color-button-secondary-border-active: $color-secondary-l1;
+
+$color-button-alternative-bg: $color-white;
+$color-button-alternative-bg-hover: $color-primary;
+$color-button-alternative-bg-active: $color-primary-l1;
+$color-button-alternative-text: $color-primary;
+$color-button-alternative-text-hover: $color-white;
+$color-button-alternative-border: $color-primary;
+$color-button-alternative-border-hover: $color-primary;
+$color-button-alternative-border-active: $color-primary-l1;

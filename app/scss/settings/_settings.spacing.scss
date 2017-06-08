@@ -1,0 +1,23 @@
+$spacing--ratio: 1.414;
+$spacing--base: 1.5rem;
+
+// Spacing Scale
+
+$spacing\+0: $spacing--base; // base (1.5rem)
+$spacing\-0: $spacing--base; // base (1.5rem)
+
+//bigger
+$spacing\+1: $spacing\+0 * $spacing--ratio; // 1 step bigger (2.121rem)
+$spacing\+2: $spacing\+1 * $spacing--ratio; // 2 steps bigger (2.999rem)
+$spacing\+3: $spacing\+2 * $spacing--ratio; // 3 steps bigger (4.241rem)
+$spacing\+4: $spacing\+3 * $spacing--ratio; // 4 steps bigger (5.996rem)
+$spacing\+5: $spacing\+4 * $spacing--ratio; // 5 steps bigger (8.479rem)
+$spacing\+6: $spacing\+5 * $spacing--ratio; // 6 steps bigger (11.989rem)
+
+//smaller
+$spacing\-1: $spacing\-0 / $spacing--ratio; // 1 step smaller (1.061rem)
+$spacing\-2: $spacing\-1 / $spacing--ratio; // 2 steps smaller (0.75rem)
+$spacing\-3: $spacing\-2 / $spacing--ratio; // 3 steps smaller (0.531rem)
+$spacing\-4: $spacing\-3 / $spacing--ratio; // 4 steps smaller (0.375rem)
+$spacing\-5: $spacing\-4 / $spacing--ratio; // 5 steps smaller (0.265rem)
+$spacing\-6: $spacing\-5 / $spacing--ratio; // 6 steps smaller (0.188rem)

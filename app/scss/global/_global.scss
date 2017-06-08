@@ -1,0 +1,44 @@
+// Global Styles
+
+body {
+  font-family: $font--primary;
+  font-size: $fontSize\+2;
+  color: $color-body-text;
+  background: $color-body-bg;
+}
+
+// Background colours
+.bg-primary { background-color: $color-primary; }
+.bg-primary-d1 { background-color: $color-primary-d1; }
+.bg-primary-d2 { background-color: $color-primary-d2; }
+.bg-primary-l1 { background-color: $color-primary-l1; }
+.bg-primary-l2 { background-color: $color-primary-l2; }
+
+.bg-secondary { background-color: $color-secondary; }
+.bg-secondary-d1 { background-color: $color-secondary-d1; }
+.bg-secondary-d2 { background-color: $color-secondary-d2; }
+.bg-secondary-l1 { background-color: $color-secondary-l1; }
+.bg-secondary-l2 { background-color: $color-secondary-l2; }
+
+.bg-alternative { background-color: $color-alternative; }
+.bg-alternative-d1 { background-color: $color-alternative-d1; }
+.bg-alternative-d2 { background-color: $color-alternative-d2; }
+.bg-alternative-l1 { background-color: $color-alternative-l1; }
+.bg-alternative-l2 { background-color: $color-alternative-l2; }
+
+.bg-white { background-color: $color-white; }
+.bg-white-d1 { background-color: $color-white-d1; }
+.bg-white-d2 { background-color: $color-white-d2; }
+
+.bg-black { background-color: $color-black; }
+.bg-black-l1 { background-color: $color-black-l1; }
+.bg-black-l2 { background-color: $color-black-l2; }
+
+.bg-success { background-color: $color-success; }
+.bg-danger { background-color: $color-danger; }
+.bg-error { background-color: $color-error; }
+
+// Font weight
+.font-weight--light { font-weight: $fontWeight--light; }
+.font-weight--semibold { font-weight: $fontWeight--semi-bold; }
+.font-weight--bold { font-weight: $fontWeight--bold; }

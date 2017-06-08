@@ -1,0 +1,90 @@
+.button {
+  width: 100%;
+  margin-bottom: $spacing\+1;
+  padding: $spacing\-1 $spacing\+0;
+  border-radius: $border-radius;
+  font-size: $fontSize\+1;
+  font-weight: $fontWeight--semi-bold;
+  text-transform: uppercase;
+  border-width: 2px;
+  border-style: solid;
+  transition: all .25s ease-in-out;
+  box-shadow: none;
+
+  &:hover,
+  &:active {
+    outline: 0;
+    box-shadow: none;
+  }
+
+}
+
+.button.button--primary {
+  background-color: $color-button-primary-bg;
+  color: $color-button-primary-text;
+  border-color: $color-button-primary-border;
+
+  &:hover {
+    background-color: $color-button-primary-bg-hover;
+    border-color: $color-button-primary-border-hover;
+  }
+
+  &:active {
+    background-color: $color-button-primary-bg-active;
+    border-color: $color-button-primary-border-active;
+  }
+}
+
+.button.button--secondary {
+  background-color: $color-button-secondary-bg;
+  color: $color-button-secondary-text;
+  border-color: $color-button-secondary-border;
+
+  &:hover {
+    background-color: $color-button-secondary-bg-hover;
+    border-color: $color-button-secondary-border-hover;
+  }
+
+  &:active {
+    background-color: $color-button-secondary-bg-active;
+    border-color: $color-button-secondary-border-active;
+  }
+}
+
+.button.button--alternative {
+  background-color: $color-button-alternative-bg;
+  color: $color-button-alternative-text;
+  border-color: $color-button-alternative-border;
+
+  &:hover {
+    background-color: $color-button-alternative-bg-hover;
+    border-color: $color-button-alternative-border-hover;
+    color: $color-button-alternative-text-hover;
+  }
+
+  &:active {
+    background-color: $color-button-alternative-bg-active;
+    border-color: $color-button-alternative-border-active;
+  }
+}
+
+.button__icon {
+  display: none;
+  margin-right: $spacing\-2;
+  font-size: $fontSize\+2;
+}
+
+.button.has-icon {
+  .button__icon {
+    display: inline-block;
+  }
+}
+
+.button.has-icon.has-icon-right {
+  direction: rtl;
+
+  .button__icon {
+    margin-left: $spacing\-2;
+    margin-right: 0;
+  }
+}

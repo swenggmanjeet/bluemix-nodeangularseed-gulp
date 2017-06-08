@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+// Font Family
+$font--primary: 'Open Sans', Helvetica, Arial, sans-serif;
+
+
+// Font Size
+$fontSize-ratio: 1.2;
+$fontSize-base: 1rem;
+
+// Font Size Modular Scale
+
+$fontSize\+0: $fontSize-base; // base (1rem)
+
+//bigger
+$fontSize\+1: $fontSize\+0 * $fontSize-ratio; // 1 step bigger (1.2rem)
+$fontSize\+2: $fontSize\+1 * $fontSize-ratio; // 2 steps bigger (1.44rem)
+$fontSize\+3: $fontSize\+2 * $fontSize-ratio; // 3 steps bigger (1.728rem)
+$fontSize\+4: $fontSize\+3 * $fontSize-ratio; // 4 steps bigger (2.074rem)
+$fontSize\+5: $fontSize\+4 * $fontSize-ratio; // 5 steps bigger (2.488rem)
+$fontSize\+6: $fontSize\+5 * $fontSize-ratio; // 6 steps bigger (2.986rem)
+$fontSize\+7: $fontSize\+6 * $fontSize-ratio; // 7 steps bigger (3.583rem)
+
+//smaller
+$fontSize\-1: $fontSize\+0 / $fontSize-ratio; // 1 step smaller (0.833rem)
+$fontSize\-2: $fontSize\-1 / $fontSize-ratio; // 2 steps smaller (0.694rem)
+$fontSize\-3: $fontSize\-2 / $fontSize-ratio; // 3 steps smaller (0.579rem)
+$fontSize\-4: $fontSize\-3 / $fontSize-ratio; // 4 steps smaller (0.482rem)
+$fontSize\-5: $fontSize\-4 / $fontSize-ratio; // 5 steps smaller (0.402rem)
+
+
+// Font Weight
+$fontWeight--light: 300;
+$fontWeight--regular: 400;
+$fontWeight--semi-bold: 600;
+$fontWeight--bold: 700;
+$fontWeight--xbold: 800;
