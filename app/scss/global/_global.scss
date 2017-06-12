@@ -7,6 +7,24 @@ body {
   background: $color-body-bg;
 }
 
+// Remove if you are not using demo view
+.demo-print {
+  display: none;
+}
+
+.chat-message.bot .chat-message__text {
+  color: $color-primary;
+}
+
+.chat-message.user .chat-message__text {
+  color: $color-secondary;
+}
+
+.chat-message__date {
+  color: $color-alternative-d2;
+}
+
+
 // Background colours
 .bg-primary { background-color: $color-primary; }
 .bg-primary-d1 { background-color: $color-primary-d1; }

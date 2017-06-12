@@ -1,24 +1,8 @@
-.demo-header {
-  padding-bottom: $spacing\+2;
-  border-bottom: $border-size--small $border-type $color-alternative;
+.header-navbar {
+  //background-color: $color-header-bg;
+  border-radius: 0;
 }
 
-.demo-header__title {
-  font-size: $fontSize\+4;
-  margin: 0;
-  padding: $spacing\+2 0;
-  color: $color-secondary;
-  //color: $color-primary;
-}
-
-.demo-main__title {
-  font-size: $fontSize\+2;
-}
-
-.demo-main__paragraph {
-  font-size: $fontSize\+1;
-}
-
-.demo-print {
-  display: none;
+.header-logo {
+  max-height: 100%;
 }

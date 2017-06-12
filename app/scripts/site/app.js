@@ -23,7 +23,7 @@ angular
                 controller: 'MainCtrl',
                 controllerAs: 'main'
             })
-            .when('/demo', {
+            .when('/chat', {
                 templateUrl: 'demo.html',
                 controller: 'DemoCtrl',
                 controllerAs: 'demo'

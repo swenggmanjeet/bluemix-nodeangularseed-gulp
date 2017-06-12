@@ -2,7 +2,7 @@ rules:
   force-element-nesting:
     - 0
   leading-zero:
-    - 1
+    - 0
     - include: true
   no-qualifying-elements:
     - 0

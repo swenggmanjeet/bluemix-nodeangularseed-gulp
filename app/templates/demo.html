@@ -1,17 +1,25 @@
-<h1>Another page using routes</h1>
-
-<input type="text" ng-model="inputText" ng-keydown="$event.keyCode === 13 && sendMessage()"/>
-
-<!-- conversation -->
-<div ng-repeat="message in messages" class="chat-message" ng-class="{'user': message.who=='user', 'bot': message.who=='bot'}">
+<div class="container">
   
-  --------------------------------------------------------------------------------------------------------------
+
+  <!-- intro -->
+  <h2>This is a simple chat conversation</h2>
+  <div style="padding: 30px 0;">Please type Hello in the input below and press key Intro! :)</div>
   
-  <p class="chat-message__text" ng-bind-html="message.text"></p>
+  <input type="text" placeholder="Introduce your message" ng-model="inputText" ng-keydown="$event.keyCode === 13 && sendMessage()" style="width: 40%; height: 50px; padding: 0 10px; margin-bottom: 50px;" />
 
-  <div class="clearfix"></div>
 
-  <span class="chat-message__date" ng-if="message.who=='user'">{{ message.date | date: 'HH:mm a' }} </span>
+  <!-- conversation -->
+  <div ng-repeat="message in messages" class="chat-message" ng-class="{'user': message.who=='user', 'bot': message.who=='bot'}">
+    
+    --------------------------------------------------------------------------------------------------------------
+    
+    <p class="chat-message__text" ng-bind-html="message.text"></p>
+
+    <div class="clearfix"></div>
+
+    <span class="chat-message__date" ng-if="message.who=='user'">{{ message.date | date: 'HH:mm a' }} </span>
+
+  </div>
+  <!-- /end of conversation -->
 
 </div>
-<!-- /end of conversation -->

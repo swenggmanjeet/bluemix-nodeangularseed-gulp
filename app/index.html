@@ -21,10 +21,12 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <app-header></app-header>
     
     <div ng-view=""></div>
     
-
+    <app-footer></app-footer>
+    
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
         ! function(A, n, g, u, l, a, r) {
@@ -45,10 +47,9 @@
 
     <!-- build:js scripts/scripts.js -->
     <script src="js/app.js"></script>
-    <script src="js/factories/apiFactory.js"></script>
-    <script src="js/factories/conversation.factory.js"></script>
-    <script src="js/controllers/main.ctr.js"></script>
-    <script src="js/controllers/demo.ctr.js"></script>
+    <script src="js/factories.js"></script>
+    <script src="js/components.js"></script>
+    <script src="js/controllers.js"></script>
     
     <!-- endbuild -->
 </body>

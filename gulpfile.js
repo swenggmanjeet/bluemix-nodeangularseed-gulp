@@ -39,10 +39,13 @@ var gulp = require('gulp'),
     app_templates = app + '/templates',
     app_templates_pages = app_templates + '/pages',
     app_templates_partials = app_templates + '/partials',
+    app_components = app_js_site + '/components',
     dist = './public',
     dist_js = dist + '/js',
     dist_js_vendors = dist_js + '/vendors',
     dist_css = dist + '/css',
+    dist_temp = dist + '/temp',
+    dist_temp_js = dist_temp + '/js',
 
 // Configuration
     config = {
@@ -61,6 +64,15 @@ gulp.task('clean', function () {
     return del.sync(dist);
 });
 
+/**
+ *  Clean temp
+ *
+ *  Remove dist directory
+ */
+gulp.task('clean:temp', function () {
+    'use strict';
+    return del.sync(dist_temp);
+});
 
 /**
  *  Copy Static
@@ -154,7 +166,7 @@ gulp.task('htmlhint', function () {
 /**
  *  Linters
  *
- *  ruan all linters: sass-lint - eslint - htmlhint
+ *  Run all linters: sass-lint - eslint - htmlhint
  */  
 gulp.task('lint', ['sasslint', 'eslint', 'htmlhint']);
 
@@ -192,7 +204,10 @@ gulp.task('build:css', function() {
  *  Compile each angular html template to templatecache js
  */ 
 gulp.task('ng:templates', function () {
-    return gulp.src(app_templates + '/*.html')
+    return gulp.src([
+            app_templates + '/**/*.html', 
+            app_components + '/**/*.html'
+        ])
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(ngTemplates('appTemplates'))
         .pipe(gulp.dest(dist_js));
@@ -207,8 +222,47 @@ gulp.task('ng:templates', function () {
  gulp.task('ng:annotate', function () {
     return gulp.src(app_js_site + '/**/*.js')
         .pipe(ngAnnotate())
-        .pipe(gulp.dest(dist_js));
+        .pipe(gulp.dest(dist_temp));
 });
+
+/**
+ *  JS concats
+ *
+ *  Concat each kind of ng modules in one file to reduce the page load
+ */
+ gulp.task('concat:controllers', function () {
+    return gulp.src(dist_temp + '/controllers/**/*.js')
+           .pipe(sourcemaps.init())
+           .pipe(concat('controllers.js'))
+           .pipe(sourcemaps.write())
+           .pipe(gulp.dest(dist_js));
+});
+
+ gulp.task('concat:components', function () {
+    return gulp.src(dist_temp + '/components/**/*.js')
+           .pipe(sourcemaps.init())
+           .pipe(concat('components.js'))
+           .pipe(sourcemaps.write())
+           .pipe(gulp.dest(dist_js));
+});
+
+gulp.task('concat:factories', function () {
+    return gulp.src(dist_temp + '/factories/**/*.js')
+           .pipe(sourcemaps.init())
+           .pipe(concat('factories.js'))
+           .pipe(sourcemaps.write())
+           .pipe(gulp.dest(dist_js));
+});
+
+gulp.task('concat:app', function () {
+    return gulp.src(dist_temp + '/app.js')
+           .pipe(sourcemaps.init())
+           .pipe(concat('app.js'))
+           .pipe(sourcemaps.write())
+           .pipe(gulp.dest(dist_js));
+});
+
+gulp.task('concat:all', ['concat:controllers', 'concat:components', 'concat:factories', 'concat:app']);
 
 
 /**
@@ -263,23 +317,15 @@ gulp.task('js:vendors', function() {
  *
  *  Build angular app 
  */  
-gulp.task('build:js', ['ng:annotate', 'ng:templates', 'js:shiv', 'js:vendors']);
+gulp.task('build:js', gulpSequence(['ng:annotate', 'ng:templates'], ['js:shiv', 'js:vendors'], 'concat:all', 'clean:temp'));
 
 
 /**
- *  Build DEV
+ *  Build all packages
  *
- *  Build dev package 
+ *  Build all package 
  */
-gulp.task('build:dev', ['lint', 'clean', 'build:css', 'build:js', 'copy:static']);
-
-
-/**
- *  Build PROD
- *
- *  Build prod package 
- */
- gulp.task('build:prod', ['clean', 'build:css', 'build:js', 'copy:static']);
+gulp.task('build:all', gulpSequence('lint', 'clean', 'build:css', 'build:js', 'copy:static'));
 
 
 /**
@@ -355,11 +401,11 @@ gulp.task('server', function() {
 
 
 /**
- *  Serve
+ *  DEV environment
  *
  *  Launch dev sequence to build package and run localhost
  */  
-gulp.task('serve', gulpSequence('build:dev', 'watch', 'server'));
+gulp.task('dev', gulpSequence('build:all', 'watch', 'server'));
 
 
 /**

@@ -36,25 +36,18 @@ $color-error: #ef4839;
 
 
 // Global colors
-$color-body-bg: $color-alternative;
+$color-body-bg: $color-white;
 $color-body-text: $color-black-l1;
 
 
 // Add your components colours using colour palette :: NOT Define new colours here
 
-// Pattern Header
-$color-pattern-header-title-bg: $color-primary-d2;
-$color-pattern-header-title-text: $color-alternative;
-$color-pattern-header-title-text-highlight: $color-secondary;
-$color-pattern-header-navbar-link: $color-white;
-$color-pattern-header-navbar-link-hover: $color-secondary;
-$color-pattern-header-navbar-link-active: $color-secondary-d1;
-$color-pattern-body-section-title-text: $color-primary;
-$color-pattern-body-section-title-separator: $color-secondary-l1;
-$color-pattern-footer-bg: $color-black-l1;
-$color-pattern-footer-text: $color-primary-d2;
-$color-pattern-footer-highlight: $color-secondary-l1;
+// Header
+$color-header-bg: $color-body-bg;
 
+// Footer
+$color-footer-bg: $color-black-l1;
+$color-footer-text: $color-white-d1;
 
 // Buttons
 $color-button-primary-bg: $color-primary;
