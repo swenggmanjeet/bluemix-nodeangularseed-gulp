@@ -233,6 +233,7 @@ gulp.task('ng:templates', function () {
  gulp.task('concat:controllers', function () {
     return gulp.src(dist_temp + '/controllers/**/*.js')
            .pipe(sourcemaps.init())
+           .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('controllers.js'))
            .pipe(sourcemaps.write())
            .pipe(gulp.dest(dist_js));
@@ -241,6 +242,7 @@ gulp.task('ng:templates', function () {
  gulp.task('concat:components', function () {
     return gulp.src(dist_temp + '/components/**/*.js')
            .pipe(sourcemaps.init())
+           .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('components.js'))
            .pipe(sourcemaps.write())
            .pipe(gulp.dest(dist_js));
@@ -249,6 +251,7 @@ gulp.task('ng:templates', function () {
 gulp.task('concat:factories', function () {
     return gulp.src(dist_temp + '/factories/**/*.js')
            .pipe(sourcemaps.init())
+           .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('factories.js'))
            .pipe(sourcemaps.write())
            .pipe(gulp.dest(dist_js));
@@ -257,6 +260,7 @@ gulp.task('concat:factories', function () {
 gulp.task('concat:app', function () {
     return gulp.src(dist_temp + '/app.js')
            .pipe(sourcemaps.init())
+           .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('app.js'))
            .pipe(sourcemaps.write())
            .pipe(gulp.dest(dist_js));

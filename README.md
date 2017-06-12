@@ -41,8 +41,8 @@ Important: If you dont have nodejs and gulp in your system you must install it f
 ## Run the app locally
 
 Go to into this project's root directory, open a command window console and then:
-+ Run `npm install` to install the app's dependencies
-+ Run `bower install` to install the vendor's dependencies
+> + Run `npm install` to install the app's dependencies
+> + Run `bower install` to install the vendor's dependencies
  
 Once you have installed all the dependencies you can run any of the following gulp tasks:
 > + **`gulp lint`** : validate your html, sass and javascript code
@@ -50,7 +50,7 @@ Once you have installed all the dependencies you can run any of the following gu
 > + **`gulp copy:static`** : copy your static files (images, fonts, json...) to the final public folder 
 > + **`gulp build:css`** : compile your sass files into a final css package
 > + **`gulp build:js`** : compile your angular files into the final js packages
-> + **`gulp build:all`** : run the linters, build the packages and copy the static files (images, fonts...) into the final public folder
+> + **`gulp build:all`** : run the linters, build the CSS & Js packages and copy the static files (images, fonts...) into the final public folder
 > + **`gulp dev`** : run a gulp sequence that build all the packages, watch for changes and launch the localhost
 > + **`gulp test`** : run karma tests
 > + **`gulp e2e`** : run protactor end to end tests
@@ -61,3 +61,8 @@ Once you have installed all the dependencies you can run any of the following gu
 [Install Gulpjs]: http://gulpjs.com/
 [Install Karma]: https://karma-runner.github.io/1.0/index.html
 [Install Protractor]: http://www.protractortest.org/#/
+
+
+## Bluemix Delivery Pipeline
+> Build Stage
+> Deploy Stage
