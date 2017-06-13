@@ -70,7 +70,7 @@ Once you have installed all the dependencies you can run any of the following gu
 
 > + **`gulp build:all`** : run the linters, build the CSS & Js packages and copy the static files (images, fonts...) into the final public folder.
 > + **`gulp dev`** : run a gulp sequence that build all the packages, watch for changes and launch the localhost.
-> + **`gulp prod`** : run a gulp sequence that build all the packages, watch for changes and launch the localhost.
+> + **`gulp prod`** : run a gulp sequence that build and minimize all the packages to reduce the final page load.
 > + **`gulp test`** : run karma tests.
 > + **`gulp e2e`** : run protactor end to end tests.
 
