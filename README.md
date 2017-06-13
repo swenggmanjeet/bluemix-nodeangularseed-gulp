@@ -45,13 +45,21 @@ Go to into this project's root directory, open a command window console and then
 > + Run `bower install` to install the vendor's dependencies
  
 Once you have installed all the dependencies you can run any of the following gulp tasks:
+
+##### Single Tasks
+
 > + **`gulp lint`** : validate your html, sass and javascript code
 > + **`gulp server`** : run your node app.js to launch the localhost 
 > + **`gulp copy:static`** : copy your static files (images, fonts, json...) to the final public folder 
 > + **`gulp build:css`** : compile your sass files into a final css package
 > + **`gulp build:js`** : compile your angular files into the final js packages
+
+
+##### Global tasks
+
 > + **`gulp build:all`** : run the linters, build the CSS & Js packages and copy the static files (images, fonts...) into the final public folder
 > + **`gulp dev`** : run a gulp sequence that build all the packages, watch for changes and launch the localhost
+> + **`gulp prod`** : run a gulp sequence that build all the packages, watch for changes and launch the localhost
 > + **`gulp test`** : run karma tests
 > + **`gulp e2e`** : run protactor end to end tests
 

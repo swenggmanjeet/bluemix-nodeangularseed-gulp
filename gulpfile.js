@@ -190,7 +190,7 @@ gulp.task('build:css', function() {
         cascade: false
     }))
     .pipe(gcmq())
-    .pipe(gulpif(config.isProductionBuild, rename({suffix: '.min'})))
+    //.pipe(gulpif(config.isProductionBuild, rename({suffix: '.min'})))
     .pipe(gulpif(config.isProductionBuild, sourcemaps.init()))
     .pipe(gulpif(config.isProductionBuild, cleanCSS({compatibility: 'ie8'})))
     .pipe(gulpif(config.isProductionBuild, sourcemaps.write('./')))
@@ -209,7 +209,10 @@ gulp.task('ng:templates', function () {
             app_components + '/**/*.html'
         ])
         .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(ngTemplates('appTemplates'))
+        .pipe(ngTemplates({
+            filename: 'templates.js',
+            module: 'appTemplates',
+        }))
         .pipe(gulp.dest(dist_js));
 });
 
@@ -235,7 +238,7 @@ gulp.task('ng:templates', function () {
            .pipe(sourcemaps.init())
            .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('controllers.js'))
-           .pipe(sourcemaps.write())
+           .pipe(gulpif(config.isProductionBuild, sourcemaps.write('./')))
            .pipe(gulp.dest(dist_js));
 });
 
@@ -244,7 +247,7 @@ gulp.task('ng:templates', function () {
            .pipe(sourcemaps.init())
            .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('components.js'))
-           .pipe(sourcemaps.write())
+           .pipe(gulpif(config.isProductionBuild, sourcemaps.write('./')))
            .pipe(gulp.dest(dist_js));
 });
 
@@ -253,7 +256,7 @@ gulp.task('concat:factories', function () {
            .pipe(sourcemaps.init())
            .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('factories.js'))
-           .pipe(sourcemaps.write())
+           .pipe(gulpif(config.isProductionBuild, sourcemaps.write('./')))
            .pipe(gulp.dest(dist_js));
 });
 
@@ -262,7 +265,7 @@ gulp.task('concat:app', function () {
            .pipe(sourcemaps.init())
            .pipe(gulpif(config.isProductionBuild, uglify()))
            .pipe(concat('app.js'))
-           .pipe(sourcemaps.write())
+           .pipe(gulpif(config.isProductionBuild, sourcemaps.write('./')))
            .pipe(gulp.dest(dist_js));
 });
 
@@ -282,7 +285,7 @@ gulp.task('js:shiv', function() {
     ])
     .pipe(plumber())
     .pipe(concat('ie-shims.js'))
-    .pipe(gulpif(config.isProductionBuild, rename({suffix: '.min'})))
+    //.pipe(gulpif(config.isProductionBuild, rename({suffix: '.min'})))
     .pipe(gulpif(config.isProductionBuild, sourcemaps.init()))
     .pipe(gulpif(config.isProductionBuild, uglify()))
     .pipe(gulpif(config.isProductionBuild, sourcemaps.write('./')))
@@ -308,7 +311,7 @@ gulp.task('js:vendors', function() {
     ])
     .pipe(plumber())
     .pipe(concat('vendors.js'))
-    .pipe(gulpif(config.isProductionBuild, rename({suffix: '.min'})))
+    //.pipe(gulpif(config.isProductionBuild, rename({suffix: '.min'})))
     .pipe(gulpif(config.isProductionBuild, sourcemaps.init()))
     .pipe(gulpif(config.isProductionBuild, uglify()))
     .pipe(gulpif(config.isProductionBuild, sourcemaps.write('./')))
@@ -410,6 +413,20 @@ gulp.task('server', function() {
  *  Launch dev sequence to build package and run localhost
  */  
 gulp.task('dev', gulpSequence('build:all', 'watch', 'server'));
+
+
+/**
+ *  PROD environment
+ *
+ *  Launch prod sequence to build packages and minimize the files
+ */  
+gulp.task('prod', gulpSequence('set:prod', 'build:all'));
+
+gulp.task('set:prod', function() {
+    'use strict';
+    config.isProductionBuild = true;
+    //config.assetSelector = '.min';
+});
 
 
 /**
