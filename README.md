@@ -1,13 +1,12 @@
 # Bluemix NodeJs-Angular seed
-----------------------------------
 
 This project is a migration from the previous [AngularBluemixSeed][], using Gulp to automate tasks instead of Grunt and Sass technology to customize the style of your final website. 
 
 Also it uses a Node Express server to connect with different apis so you are able to set the credentials for your apis in the server side and define the endpoints, that allows you to create a full angularJs web application that doesn't need to create a backend project running in the background.
 
 
-> The Node Express server is located in a file called **app.js** in the root directory.
-> The frontend app is located in the folder called **/app** 
+>       + The Node Express server is located in a file called **app.js** in the root directory.
+>       + The frontend app is located in the folder called **/app** 
 
 
 __*Important:*__ If you dont have nodejs and gulp in your system you must install it from the next links. Karma and Protractor are used for unit test purposes so it's recommend to install it also.
@@ -64,7 +63,7 @@ Once you have installed all the dependencies you can run any of the following gu
 > + **`gulp server`** : run your node app.js to launch the localhost.
 > + **`gulp copy:static`** : copy your static files (images, fonts, json...) to the final public folder.
 > + **`gulp build:css`** : compile your sass files into a final css package.
-> + **`gulp build:js`** : compile your angular files into the final js packages.
+> + **`gulp build:js`** : compile your angular files into the final js package.
 
 
 ##### Global tasks
@@ -86,5 +85,5 @@ Once you have installed all the dependencies you can run any of the following gu
 ----------------------------------
 
 ## Bluemix Delivery Pipeline
-> Build Stage -- In progress
-> Deploy Stage -- In progress
+>       + Build Stage -- In progress
+>       + Deploy Stage -- In progress
