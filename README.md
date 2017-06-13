@@ -59,7 +59,7 @@ Once you have installed all the dependencies you can run any of the following gu
 
 ##### Single Tasks
 
-> + **`gulp lint`** : validate your html, sass and javascript code.
+> + **`gulp lint`** : validate your html (*HtmlHint*), sass (*Sass Lint*)  and javascript code (*EsLint*).
 > + **`gulp server`** : run your node app.js to launch the localhost.
 > + **`gulp copy:static`** : copy your static files (images, fonts, json...) to the final public folder.
 > + **`gulp build:css`** : compile your sass files into a final css package.
