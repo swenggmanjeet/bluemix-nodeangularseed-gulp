@@ -27,6 +27,9 @@ If you want to reply this project in you bluemix environment just click on the n
     + Contains the credentials and the url to create the endpoint that connect with Watson apis.
     + Run the node server using Express.
 
++ ##### Api Credentials --- file ./credentials.js
+    + Define a module with the credentials for all the api services used in the application.
+
 + ##### Frontend application --- folder ./app
     + **/data**: Static json files to define the content of the site .
     + **/fonts**: Static font files to use in final css declarations.
@@ -74,7 +77,7 @@ Once you have installed all the dependencies you can run any of the following gu
 > + **`gulp test`** : run karma tests.
 > + **`gulp e2e`** : run protactor end to end tests.
 
-+ During development phase running the app in a browser at <http://localhost:6006>
++ During development phase running the `gulp dev` task should open your default web browser with the localhost url
 
 [Install Node.js]: https://nodejs.org/en/download/
 [Install Gulpjs]: http://gulpjs.com/

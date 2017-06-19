@@ -1,11 +1,3 @@
-/*eslint-env node*/
-
-// Credentials
-var API_USERNAME = '274e2fd1-94f4-4b88-b462-244302e39a80';
-var API_PASSWORD = '0pMi8nbLNpmq';
-var API_URL = 'https://gateway.watsonplatform.net/conversation/api';
-var WORKSPACE_ID = 'a90014b3-6144-45ae-a96f-794b4b809d0d';
-
 //------------------------------------------------------------------------------
 // node.js starter application for Bluemix
 //------------------------------------------------------------------------------
@@ -15,6 +7,10 @@ var WORKSPACE_ID = 'a90014b3-6144-45ae-a96f-794b4b809d0d';
 var express = require('express');
 var bodyParser = require('body-parser'); // parser for post requests
 var Conversation = require('watson-developer-cloud/conversation/v1'); // watson sdk
+var opn = require('opn');
+
+// Get api credentials
+var credentials = require('./credentials.js');
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -32,16 +28,16 @@ var appEnv = cfenv.getAppEnv();
 
 // Create the service wrapper
 var conversation = new Conversation({
-  username: API_USERNAME,
-  password: API_PASSWORD,
-  url: API_URL,
+  username: credentials.watson.conversation.username,
+  password: credentials.watson.conversation.password,
+  url: credentials.watson.conversation.url,
   version_date: Conversation.VERSION_DATE_2017_04_21
 });
 
 // Endpoint to be call from the client side
 app.post('/api/message', function(req, res) {
   var payload = {
-    workspace_id: WORKSPACE_ID,
+    workspace_id: credentials.watson.conversation.workspaceId,
     context: req.body.context || {},
     input: req.body.input || {}
   };
@@ -94,3 +90,8 @@ app.listen(appEnv.port, '0.0.0.0', function() {
   // print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
 });
+
+if (appEnv.url.indexOf('localhost')) {
+  console.log('Open localhost in default browser');
+  opn(appEnv.url);
+}
