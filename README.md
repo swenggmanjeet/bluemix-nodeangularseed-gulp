@@ -31,7 +31,7 @@ If you want to reply this project in you bluemix environment just click on the n
     + Define a module with the credentials for all the api services used in the application.
 
 + ##### Frontend application --- folder ./app
-    + **/data**: Static json files to define the content of the site .
+    + **/data**: Static json files to define the content of the site.
     + **/fonts**: Static font files to use in final css declarations.
     + **/images**: Stactic images.
     + **/js**: Javascript base folder, as it's an angular sap, only use it if you need to check a specific method from the node server. You can use it later to define your karma tests .
