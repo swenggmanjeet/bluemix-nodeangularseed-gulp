@@ -12,7 +12,7 @@ Also it uses a Node Express server to connect with different apis so you are abl
 __*Important:*__ If you dont have nodejs and gulp in your system you must install it from the next links. Karma and Protractor are used for unit test purposes so it's recommend to install it also.
 
 1. [Install Node.js][]
-2. [Instal Bower][]
+2. [Install Bower][]
 3. [Install Gulpjs][]
 4. [Install Karma][]
 5. [Install Protractor][]
@@ -80,12 +80,6 @@ Once you have installed all the dependencies you can run any of the following gu
 
 + During development phase running the `gulp dev` task should open your default web browser with the localhost url
 
-[Install Node.js]: https://nodejs.org/en/download/
-[Install Bower]: https://bower.io/
-[Install Gulpjs]: http://gulpjs.com/
-[Install Karma]: https://karma-runner.github.io/1.0/index.html
-[Install Protractor]: http://www.protractortest.org/#/
-[AngularBluemixSeed]: https://github.com/larshnordli/AngularBluemixSeed
 
 ----------------------------------
 
@@ -107,10 +101,19 @@ Using the Continuous delivery tool in Bluemix you must create your **delivery pi
 > #### Deploy Stage
     + It should be appears by default using Deployer type: Cloud Foundry
     + The deploy scrips should be something similar to: 
-    `` 
-        #!/bin/bash
-        cf push "${CF_APP}"
+        `` 
+            #!/bin/bash
+            cf push "${CF_APP}"
 
-        # View logs
-        # cf logs "${CF_APP}" --recent
-    `` 
+            # View logs
+            # cf logs "${CF_APP}" --recent
+        `` 
+
+
+[Install Node.js]: https://nodejs.org/en/download/
+[Install Bower]: https://bower.io/
+[Install Gulpjs]: http://gulpjs.com/
+[Install Karma]: https://karma-runner.github.io/1.0/index.html
+[Install Protractor]: http://www.protractortest.org/#/
+[AngularBluemixSeed]: https://github.com/larshnordli/AngularBluemixSeed
+
