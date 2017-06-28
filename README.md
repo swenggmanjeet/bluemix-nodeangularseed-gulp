@@ -12,7 +12,7 @@ Also it uses a Node Express server to connect with different apis so you are abl
 __*Important:*__ If you dont have nodejs and gulp in your system you must install it from the next links. Karma and Protractor are used for unit test purposes so it's recommend to install it also.
 
 1. [Install Node.js][]
-2. [Instal Bower.js][]
+2. [Instal Bower][]
 3. [Install Gulpjs][]
 4. [Install Karma][]
 5. [Install Protractor][]
