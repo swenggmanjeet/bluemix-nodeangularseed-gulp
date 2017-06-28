@@ -1,5 +1,7 @@
-// Components
-@import 'header';
-@import 'footer';
+// Common Components
 @import 'button';
+
+// Angular components
+@import '../../ng-app/components/header/header.style';
+@import '../../ng-app/components/footer/footer.style';
 

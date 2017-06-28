@@ -19,12 +19,12 @@ angular
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'main.html',
+                templateUrl: 'main.template.html',
                 controller: 'MainCtrl',
                 controllerAs: 'main'
             })
             .when('/chat', {
-                templateUrl: 'demo.html',
+                templateUrl: 'demo.template.html',
                 controller: 'DemoCtrl',
                 controllerAs: 'demo'
             })

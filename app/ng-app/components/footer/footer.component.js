@@ -11,22 +11,17 @@
 
 function FooterController($scope, contentFactory) {
 
-  console.log('FooterController ready!')
-
   $scope.myFooter = {};
   contentFactory.getContent().then(function(response) {
     $scope.myFooter = response.data.footer;    
   }).catch(function (response) {
     console.error('Footer error', response.status, response.data);
-  }).finally(function () {
-    console.log("finally finished header");
   });
-
 
 };
 
 angular.module('myApp').component('appFooter', {
-  templateUrl: 'footer/footer.component.html',
+  templateUrl: 'footer/footer.template.html',
   controller: FooterController,
   bindings: {}
 });

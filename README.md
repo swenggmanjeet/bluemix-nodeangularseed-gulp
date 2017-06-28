@@ -12,9 +12,10 @@ Also it uses a Node Express server to connect with different apis so you are abl
 __*Important:*__ If you dont have nodejs and gulp in your system you must install it from the next links. Karma and Protractor are used for unit test purposes so it's recommend to install it also.
 
 1. [Install Node.js][]
-2. [Install Gulpjs][]
-3. [Install Karma][]
-4. [Install Protractor][]
+2. [Instal Bower.js][]
+3. [Install Gulpjs][]
+4. [Install Karma][]
+5. [Install Protractor][]
 
 If you want to reply this project in you bluemix environment just click on the next button:
 
@@ -35,9 +36,9 @@ If you want to reply this project in you bluemix environment just click on the n
     + **/fonts**: Static font files to use in final css declarations.
     + **/images**: Stactic images.
     + **/js**: Javascript base folder, as it's an angular sap, only use it if you need to check a specific method from the node server. You can use it later to define your karma tests .
-    + **/scripts**: Contains the angular scripts: app, controllers, components and factories.
+    + **/ng-app**: Contains the angular app: controllers, factories, components and the templates for the pages that have beed defined in the angular routing.
+        ++ Echa angular component contains: the component file with the directive and the controller, the html template and also the scss style in order to have all files in the same folder. *Remember that once you create your own component you must include his style in the .app/scss/componentes/components.all.scss.*
     + **/scss**: Style declarations using SaSS technology (scss).
-    + **/templates**: Include the html views that have beed defined in the angular routing.
     + **index.html**: Main html view where the angular app is injected.
 
 + ##### Karma tests --- folder ./test
@@ -80,6 +81,7 @@ Once you have installed all the dependencies you can run any of the following gu
 + During development phase running the `gulp dev` task should open your default web browser with the localhost url
 
 [Install Node.js]: https://nodejs.org/en/download/
+[Install Bower]: https://bower.io/
 [Install Gulpjs]: http://gulpjs.com/
 [Install Karma]: https://karma-runner.github.io/1.0/index.html
 [Install Protractor]: http://www.protractortest.org/#/
@@ -88,5 +90,27 @@ Once you have installed all the dependencies you can run any of the following gu
 ----------------------------------
 
 ## Bluemix Delivery Pipeline
-> + Build Stage -- In progress
-> + Deploy Stage -- In progress
+
+Using the Continuous delivery tool in Bluemix you must create your **delivery pipeline** with the following steps:
+> #### Build Stage
+    + Set the builder type to: npm
+    + Add the code to install the modules needed in the same way that you did for local development:
+        ``
+            export PATH=/opt/IBM/node-v6.7.0/bin:$PATH
+            npm install
+            npm install -g bower
+            bower install
+            npm install -g gulp-cli
+
+            gulp prod
+        ``
+> #### Deploy Stage
+    + It should be appears by default using Deployer type: Cloud Foundry
+    + The deploy scrips should be something similar to: 
+    `` 
+        #!/bin/bash
+        cf push "${CF_APP}"
+
+        # View logs
+        # cf logs "${CF_APP}" --recent
+    `` 

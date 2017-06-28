@@ -29,9 +29,9 @@ var gulp = require('gulp'),
     app_vendor = 'node_modules',
     app_bower = './bower_components',
     app_scss = app + '/scss',
-    app_js = app + '/scripts',
-    app_js_vendor = app_js + '/vendors',
+    app_js = app + '/js',
     app_js_site = app_js + '/site',
+    app_js_vendor = app_js + '/vendors',
     app_css = app + '/css',
     app_images = app + '/images',
     app_fonts = app + '/fonts',
@@ -46,6 +46,12 @@ var gulp = require('gulp'),
     dist_css = dist + '/css',
     dist_temp = dist + '/temp',
     dist_temp_js = dist_temp + '/js',
+
+    ng_app = app + '/ng-app',
+    ng_controllers = ng_app + '/controllers',
+    ng_components = ng_app + '/components', 
+    ng_factories = ng_app + '/factories', 
+    ng_pages = ng_app + '/pages', 
 
 // Configuration
     config = {
@@ -117,7 +123,8 @@ gulp.task('sasslint', function () {
         '!' + app_scss + '/vendor/**',
         '!' + app_scss + '/tools/*.scss',
         '!' + app_scss + '/libraries.scss',
-        app_scss + '/**/*.scss'
+        app_scss + '/**/*.scss',
+        ng_components + '/**/*.scss'
     ])
     .pipe(sassLint({
         options: {
@@ -138,7 +145,7 @@ gulp.task('sasslint', function () {
  gulp.task('eslint', function () {
     'use strict';
     return gulp.src(
-        app_js_site + '/**/*.js'
+        ng_app + '/**/*.js'
     )
     .pipe(plumber())
     .pipe(eslint({fix: true}))
@@ -155,7 +162,8 @@ gulp.task('sasslint', function () {
 gulp.task('htmlhint', function () {
     'use strict';
     return gulp.src([
-        app_templates + '/**/*.html'
+        ng_components + '/**/*.html',
+        ng_pages + '/**/*.html'
     ])
     .pipe(plumber())
     .pipe(htmlhint('.htmlhintrc'))
@@ -205,8 +213,8 @@ gulp.task('build:css', function() {
  */ 
 gulp.task('ng:templates', function () {
     return gulp.src([
-            app_templates + '/**/*.html', 
-            app_components + '/**/*.html'
+            ng_pages + '/**/*.html', 
+            ng_components + '/**/*.html'
         ])
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(ngTemplates({
@@ -223,7 +231,7 @@ gulp.task('ng:templates', function () {
  *  Tries to make the code safe for minification automatically
  */ 
  gulp.task('ng:annotate', function () {
-    return gulp.src(app_js_site + '/**/*.js')
+    return gulp.src(ng_app + '/**/*.js')
         .pipe(ngAnnotate())
         .pipe(gulp.dest(dist_temp));
 });
@@ -326,6 +334,10 @@ gulp.task('js:vendors', function() {
  */  
 gulp.task('build:js', gulpSequence(['ng:annotate', 'ng:templates'], ['js:shiv', 'js:vendors'], 'concat:all', 'clean:temp'));
 
+gulp.task('build:js:watch', function(callback) {
+    gulpSequence('ng:annotate', 'concat:all')(callback);
+}); 
+
 
 /**
  *  Build all packages
@@ -347,25 +359,36 @@ gulp.task('watch', function() {
         gulp.watch(
             app_scss + '/**/*'
         , function (event) {
+            console.log('--- watch: scss');
             reloadServer(event, ['sasslint', 'build:css']);
         });
 
         gulp.watch(
-            app_js_site + '/**/*'
+            ng_app + '/**/*.js'
         , function (event) {
-            reloadServer(event, ['eslint', 'ng:annotate']);
+            console.log('--- watch: ng js');
+            reloadServer(event, ['eslint', 'build:js:watch']);
+        });
+
+        gulp.watch(
+            ng_app + '/**/*.scss'
+        , function (event) {
+            console.log('--- watch: ng scss');
+            reloadServer(event, ['sasslint', 'build:css']);
+        });
+
+        gulp.watch(
+            ng_app + '/**/*.html'
+        , function (event) {
+            console.log('--- watch: ng html');
+            reloadServer(event, ['htmlhint', 'ng:templates']);
         });
 
         gulp.watch(
             app_js_vendor + '/**/*'
         , function (event) {
+            console.log('--- watch: vendors');
             reloadServer(event, ['js:vendors', 'js:shiv']);
-        });
-
-        gulp.watch(
-            app_templates + '/**/*.html'
-        , function (event) {
-            reloadServer(event, ['htmlhint', 'ng:templates']);
         });
 
         gulp.watch([
@@ -373,6 +396,7 @@ gulp.task('watch', function() {
             app_fonts + '/**/*',
             app_data + '/**/*'
         ], function (event) {
+            console.log('--- watch: static files');
             reloadServer(event, ['copy:static']);
         });
     }
@@ -381,7 +405,7 @@ gulp.task('watch', function() {
 
 function reloadServer(event, tasks) {
     gulp.start(tasks, function() {
-        console.log('--- change detected > launch tasks');
+        console.log('--- refresh your localhost');
     });
 }
 
