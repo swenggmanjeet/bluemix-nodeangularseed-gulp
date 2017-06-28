@@ -37,7 +37,12 @@ If you want to reply this project in you bluemix environment just click on the n
     + **/images**: Stactic images.
     + **/js**: Javascript base folder, as it's an angular sap, only use it if you need to check a specific method from the node server. You can use it later to define your karma tests .
     + **/ng-app**: Contains the angular app: controllers, factories, components and the templates for the pages that have beed defined in the angular routing.
-        ++ Echa angular component contains: the component file with the directive and the controller, the html template and also the scss style in order to have all files in the same folder. *Remember that once you create your own component you must include his style in the .app/scss/componentes/components.all.scss.*
+        
+        + Each angular component contains: 
+            + *.component.js --> Define the angular component module and his own controller
+            + *.template.html 
+            + *.style.scss --> *Remember to add it in the main component.all.scss of /scss folder
+
     + **/scss**: Style declarations using SaSS technology (scss).
     + **index.html**: Main html view where the angular app is injected.
 
