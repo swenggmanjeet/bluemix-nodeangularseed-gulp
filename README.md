@@ -41,7 +41,7 @@ If you want to reply this project in you bluemix environment just click on the n
         + Each angular component contains: 
             + *.component.js --> Define the angular component module and his own controller
             + *.template.html 
-            + *.style.scss --> *Remember to add it in the main component.all.scss of /scss folder
+            + *.style.scss --> *Remember to add it in the main component.all.scss of /scss folder*.
 
     + **/scss**: Style declarations using SaSS technology (scss).
     + **index.html**: Main html view where the angular app is injected.
