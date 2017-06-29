@@ -1,24 +1,42 @@
 {
-  "header": {
-    "title": "My NodeJs & Gulp starter for an angularJs app",
-    "logo": "my-logo.svg",
-    "menu": [
-      {
-        "name": "Item 1",
-        "link": "#!/link1"
-      },
-      {
-        "name": "Item 2",
-        "link": "#!/link2"
-      },
-      {
-        "name": "Chat Demo",
-        "link": "#!/chat"
-      }
-    ]
+  "components": {
+    "header": {    
+      "logo": "my-logo.svg",
+      "menu": [
+        {
+          "name": "Item 1",
+          "link": "#!/link1"
+        },
+        {
+          "name": "Item 2",
+          "link": "#!/link2"
+        },
+        {
+          "name": "Chat Demo",
+          "link": "#!/chat"
+        }
+      ]
+    },
+    "footer": {
+      "copyright": "Accenture Center for IBM Technologies SPAIN"
+    },
+    "sample": {
+      "message": "This is a sample component"
+    }
   },
-  "body": {},
-  "footer": {
-    "copyright": "Accenture Center for IBM Technologies SPAIN"
+  "pages": {
+    "home": {
+      "title": "Custom template - Home",
+      "message": ""
+    },
+    "demo": {
+      "title": "Custom template - Demo",
+      "message": ""
+    },
+    "notFound": {
+      "title": "Custom template - Page not found",
+      "message": "Sorry, the page wasn't found."
+    }
   }
+  
 }

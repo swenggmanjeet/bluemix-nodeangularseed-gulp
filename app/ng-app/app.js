@@ -23,12 +23,22 @@ angular
                 controller: 'MainCtrl',
                 controllerAs: 'main'
             })
+            .when('/home', {
+                templateUrl: 'main.template.html',
+                controller: 'MainCtrl',
+                controllerAs: 'main'
+            })
             .when('/chat', {
                 templateUrl: 'demo.template.html',
                 controller: 'DemoCtrl',
                 controllerAs: 'demo'
             })
+            .when('/404', {
+                templateUrl: '404.template.html',
+                controller: 'NotFoundCtrl',
+                controllerAs: 'notfound'
+            })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/404'
             });
     });

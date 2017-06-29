@@ -10,7 +10,7 @@
  */
 
 angular.module('myApp')
-    .controller('MainCtrl',
+    .controller('NotFoundCtrl',
       ['$scope', 'contentFactory',
       function($scope, contentFactory) {
 
@@ -19,21 +19,9 @@ angular.module('myApp')
         contentFactory.getContent().then(function(response) {
           $scope.wc = response.data;    
         }).catch(function (response) {
-          console.error('MainCtrl error', response.status, response.data);
+          console.error('NotFoundCtrl error', response.status, response.data);
         }).finally(function(){
-          console.log('MainCtrl ready!');
+          console.log('NotFoundCtrl ready!');
         });
-
-        $scope.username = '';
-        $scope.result = '';
-
-        $scope.demoPrintUsername = function() {
-          $scope.result = $scope.username;
-          if ($scope.result !== '') {
-            angular.element('.demo-print').show();
-          }
-        };
-
-        $scope.test = 'watch';
       
     }]);

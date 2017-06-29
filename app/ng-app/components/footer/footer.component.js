@@ -11,9 +11,10 @@
 
 function FooterController($scope, contentFactory) {
 
+  // Need to get the content as it load outside the ng-view
   $scope.myFooter = {};
   contentFactory.getContent().then(function(response) {
-    $scope.myFooter = response.data.footer;    
+    $scope.myFooter = response.data.components.footer;    
   }).catch(function (response) {
     console.error('Footer error', response.status, response.data);
   });

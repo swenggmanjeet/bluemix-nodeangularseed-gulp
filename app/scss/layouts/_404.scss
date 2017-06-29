@@ -1,0 +1,19 @@
+.not-found-wrapper {
+  padding-top: $spacing\+4;
+  padding-bottom: $spacing\+4;
+}
+
+.not-found-message {
+  font-size: $fontSize\+3;
+  margin-left: $spacing\+0;
+  margin-right: $spacing\-2;
+}
+  
+.not-found-exclamation {
+  color: $color-error;
+  font-size: $fontSize\+6;
+}
+
+.not-found-frown {
+  font-size: $fontSize\+3;
+}

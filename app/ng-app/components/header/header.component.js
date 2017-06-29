@@ -11,9 +11,10 @@
 
 function HeaderController($scope, contentFactory) {
 
+  // Need to get the content as it load outside the ng-view
   $scope.myHeader = {};
   contentFactory.getContent().then(function(response) {
-    $scope.myHeader = response.data.header;    
+    $scope.myHeader = response.data.components.header;    
   }).catch(function (response) {
     console.error('Header error', response.status, response.data);
   });
